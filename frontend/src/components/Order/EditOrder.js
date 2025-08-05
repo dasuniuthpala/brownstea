@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { getOrderById, updateOrder } from "../../services/orderService"; 
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditOrder.css";
@@ -17,7 +17,11 @@ const EditOrder = () => {
     orderDate: "",
   });
 
-  const loadOrder = useCallback(async () => {
+  useEffect(() => {
+    loadOrder();
+  }, []);
+
+  const loadOrder = async () => {
     try {
       const result = await getOrderById(id);
       console.log("Fetched order data:", result.data);
@@ -25,11 +29,7 @@ const EditOrder = () => {
     } catch (error) {
       console.error("Error fetching order:", error.response?.data || error.message);
     }
-  }, [id]);
-
-  useEffect(() => {
-    loadOrder();
-  }, [loadOrder]);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;

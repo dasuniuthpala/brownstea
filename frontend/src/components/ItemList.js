@@ -13,6 +13,7 @@ const ItemList = () => {
   const [items, setItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [noResults, setNoResults] = useState(false);
+  const ComponentsRef = useRef();
 
   const loadItems = useCallback(async () => {
     try {

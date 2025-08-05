@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getOrders, deleteOrder } from "../../services/orderService";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,9 +13,14 @@ import "./OrderList.css";
 const OrderList = () => {
   const [orders, setOrders] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [noResults, setNoResults] = useState(false);
   const [monthlyTotal, setMonthlyTotal] = useState({});
 
-  const loadOrders = useCallback(async () => {
+  useEffect(() => {
+    loadOrders();
+  }, []);
+
+  const loadOrders = async () => {
     try {
       const result = await getOrders();
       setOrders(result.data);
@@ -23,11 +28,7 @@ const OrderList = () => {
     } catch (error) {
       console.error("Error fetching orders:", error);
     }
-  }, []);
-
-  useEffect(() => {
-    loadOrders();
-  }, [loadOrders]);
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -115,7 +116,11 @@ const OrderList = () => {
   };
 
   const ComponentsRef = useRef();
-  // Removed unused handlePrint function
+  const handlePrint = useReactToPrint({
+    content: () => ComponentsRef.current,
+    documentTitle: "Orders Report",
+    onAfterPrint: () => toast.success("Orders Report Successfully Downloaded!"),
+  });
 
   //pie chart
   const chartData = orders.map(order => ({

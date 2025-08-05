@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 // Pages & Modules
 import MainContent from "./components/MainContent";
 import AboutUs from "./pages/AboutUs";
+import OurTeas from "./pages/OurTeas";
 import Blogs from "./pages/Blogs";
 import Login from "./pages/Auth/Login";
 import TeaCollection from "./pages/TeaCollection";

@@ -6,14 +6,14 @@ body {
 
 /* Main container background */
 .main-content {
-  padding-top: 90px; /* Increased to account for fixed header height (~75px) + extra space */
+  padding-top: 0; /* Remove padding to eliminate white space */
 }
 
 /* Page container background */
 .page-container {
   background-color: rgb(242, 254, 242);
   padding: 20px;
-  min-height: calc(100vh - 90px); /* Adjust for padding-top */
+  min-height: 100vh; /* Full height without offset */
   overflow-y: auto;
 }
 
@@ -53,6 +53,18 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  display: inline-block; /* Ensure buttons display inline */
+}
+
+/* Actions column styling to display buttons in one row */
+.inventory-table td:last-child {
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.inventory-table td:last-child .edit-button,
+.inventory-table td:last-child .delete-button {
+  margin: 2px; /* Reduce margin for tighter spacing */
+  vertical-align: middle; /* Align buttons vertically */
 }
 
 /* Individual button colors */

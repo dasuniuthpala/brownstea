@@ -113,8 +113,10 @@ const FeedbackList = () => {
                 </span>
               </td>
               <td>
-                <Link to={`/edit-feedback/${fb._id}`} className="edit-btn">Edit</Link>
-                <button onClick={() => handleDelete(fb._id)} className="delete-btn">Delete</button>
+                <div className="action-buttons">
+                  <Link to={`/edit-feedback/${fb._id}`} className="edit-btn">Edit</Link>
+                  <button onClick={() => handleDelete(fb._id)} className="delete-btn">Delete</button>
+                </div>
               </td>
             </tr>
           ))}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AddFeedback.css";
@@ -15,7 +15,11 @@ const EditFeedback = () => {
   });
   const [errors, setErrors] = useState({});
 
-  const fetchFeedback = useCallback(async () => {
+  useEffect(() => {
+    fetchFeedback();
+  }, [id]);
+
+  const fetchFeedback = async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/dfeedbacks/get/${id}`);
       setFeedback(res.data);
@@ -23,11 +27,7 @@ const EditFeedback = () => {
       console.error("Error fetching feedback:", err);
       alert("Failed to fetch feedback details");
     }
-  }, [id]);
-
-  useEffect(() => {
-    fetchFeedback();
-  }, [fetchFeedback]);
+  };
 
   const handleChange = (e) => {
     setFeedback({ ...feedback, [e.target.name]: e.target.value });

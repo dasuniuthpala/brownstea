@@ -51,7 +51,7 @@ const MainContent = () => {
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, [images]);
+  }, []);
 
   return (
     <main className="main-content">
@@ -60,7 +60,7 @@ const MainContent = () => {
           <h1>Browns Tea</h1>
           <p>Discover Nature's Finest Tea Selection</p>
           <p>Indulge in the rich heritage of Ceylon's finest leaves.</p>
-          <p>Handpicked from the lush hills and valleys of Sri Lanka.</p>
+          <p>Handpicked from the lush hills and valleys of Sri Lanka</p>
           <p>Every sip delivers unmatched aroma, flavor, and warmth.</p>
           <p>From classic black to soothing green and herbal blends.</p>
           <p>Carefully crafted for tea lovers who value authenticity.</p>

@@ -1,14 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import { getVendors, deleteVendor } from "../../services/vendorService";
 import { Link } from "react-router-dom";
+import { useReactToPrint } from "react-to-print";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "./VendorList.css";
+import logo from "../../logo.png";
 
 const VendorList = () => {
   const [vendors, setVendors] = useState([]);
   const [allVendors, setAllVendors] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [noResults, setNoResults] = useState(false);
   const ComponentsRef = useRef();
 
   useEffect(() => {
@@ -21,9 +24,11 @@ const VendorList = () => {
       console.log("Fetched data:", result.data);
       setAllVendors(result.data || []);
       setVendors(result.data || []);
+      setNoResults(false);
     } catch (error) {
       console.error("Failed to fetch vendors:", error);
       setVendors([]);
+      setNoResults(true);
     }
   };
 
@@ -43,6 +48,7 @@ const VendorList = () => {
       )
     );
     setVendors(filteredVendors);
+    setNoResults(filteredVendors.length === 0);
   };
 
   const generatePDFReport = () => {
