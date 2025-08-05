@@ -1,0 +1,83 @@
+.tea-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #f8f9fa;
+}
+
+.tea-details-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.tea-image {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tea-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tea-info {
+  padding: 1rem;
+}
+
+.tea-info h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.details-section, .brewing-section {
+  margin-bottom: 2rem;
+}
+
+.details-section h2, .brewing-section h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.details-section p, .brewing-section p {
+  color: #444;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .tea-details-content {
+    grid-template-columns: 1fr;
+  }
+
+  .tea-image {
+    height: 300px;
+  }
+} 

@@ -1,0 +1,78 @@
+/* Page Background */
+.page-background {
+  background-color: rgb(242, 254, 242);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Add Order Button */
+.add-button {
+  display: inline-block;
+  background-color: rgb(76, 196, 124); /* Green */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: rgb(76, 196, 124); /* Darker Green */
+}
+
+/* Edit Button */
+.edit-button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #0056b3; /* Darker Blue */
+}
+
+/* Delete Button */
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #b30000; /* Darker Red */
+}
+
+/* Scrollable Container */
+.scrollable-container {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+/* Download & WhatsApp Buttons */
+.download-button, .whatsapp-button {
+  padding: 12px 18px; /* Increase padding for bigger size */
+  font-size: 16px; /* Increase font size */
+  width: 200px; /* Set a specific width */
+}
+
+/* Vendor Table */
+.vendor-table {
+  width: 100%;
+  border-collapse: collapse;
+  display: table;
+  background-color: white; /* Ensure table background stays white */
+}
+
+.vendor-table td,
+.vendor-table th {
+  border: 1px solid black;
+  padding: 8px;
+}

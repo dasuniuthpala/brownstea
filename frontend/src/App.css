@@ -1,0 +1,112 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0fff0; /* Light green background for the page */
+}
+
+/* App layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Content styles */
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-top: 75px; /* Highest value from both files */
+  margin-left: 0;
+  transition: margin-left 0.3s;
+}
+
+.content.shifted {
+  margin-left: 250px;
+}
+
+/* Table styles */
+table {
+  background-color: #f0fff0; /* Light green background for tables */
+}
+
+th, td {
+  background-color: #f0fff0; /* Light green background for table cells */
+}
+
+/* Vendor table specific styles */
+.vendor-table {
+  background-color: transparent;
+}
+
+.vendor-table th,
+.vendor-table td {
+  background-color: transparent;
+}
+
+/* Inventory table specific styles */
+.inventory-table {
+  background-color: white;
+}
+
+.inventory-table th,
+.inventory-table td {
+  background-color: white;
+}
+
+/* Form styles */
+form {
+  background-color: white; /* White background for forms */
+}
+
+form input,
+form select,
+form textarea {
+  background-color: white;
+}

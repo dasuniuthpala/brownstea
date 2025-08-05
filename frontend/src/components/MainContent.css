@@ -1,0 +1,377 @@
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 90px; /* Increased to account for fixed header height (~75px) + extra space */
+  background-color: white;
+  position: relative; /* Ensure content stacks properly */
+}
+
+/* Add this to prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+.hero {
+  text-align: center;
+  padding: 150px 0;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+  max-height: 600px;
+  transition: background-image 1s ease-in-out; /* Smooth transition for image change */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero h1 {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.tea-variety {
+  margin-bottom: 40px;
+  overflow: hidden; /* Added for single row layout */
+}
+
+.tea-variety h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #3a5a40;
+}
+
+/* Updated tea-grid for single row */
+.tea-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 25px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #3a5a40 #f8f9fa;
+}
+
+/* Scrollbar styling */
+.tea-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tea-grid::-webkit-scrollbar-track {
+  background: #f8f9fa;
+  border-radius: 3px;
+}
+
+.tea-grid::-webkit-scrollbar-thumb {
+  background-color: #3a5a40;
+  border-radius: 3px;
+}
+
+.tea-card {
+  flex: 0 0 200px; /* Fixed width, no growing/shrinking */
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.tea-card:hover {
+  transform: translateY(-5px);
+}
+
+.tea-image-container {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.tea-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.tea-card:hover .tea-image {
+  transform: scale(1.05);
+}
+
+.tea-card h3 {
+  color: #3a5a40;
+  margin: 15px 0 5px;
+  padding: 0 10px;
+}
+
+.tea-card p {
+  color: #588157;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
+.featured-teas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.tea-highlight {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tea-highlight h3 {
+  color: #3a5a40;
+  margin-bottom: 10px;
+}
+
+.deals {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.deals h2 {
+  color: #3a5a40;
+  margin-bottom: 20px;
+}
+
+.best-deal {
+  background-color: #3a5a40;
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.best-deal h3 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Poster Carousel Styles */
+.poster-carousel {
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  width: calc(150% + 60px);
+  gap: 20px;
+}
+
+.carousel-slide {
+  flex: 0 0 calc(33.333% - 40px);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: auto;
+  max-height: 300px;
+}
+
+.carousel-slide:hover {
+  transform: translateY(-5px);
+}
+
+.poster-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 40px));
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-track {
+    animation: scroll 25s linear infinite;
+    gap: 15px;
+  }
+  .carousel-slide {
+    flex: 0 0 calc(50% - 30px);
+  }
+  
+  .tea-card {
+    flex: 0 0 180px; /* Slightly smaller cards on tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-track {
+    animation: scroll 20s linear infinite;
+    gap: 10px;
+  }
+  .carousel-slide {
+    flex: 0 0 calc(100% - 20px);
+  }
+  
+  .tea-card {
+    flex: 0 0 160px; /* Smaller cards on mobile */
+  }
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.hero p {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin: 8px 0;
+}
+
+/* Features Section */
+.section-padding {
+  padding: 4rem 0;
+}
+
+.bg-emerald-50 {
+  background-color: #ecfdf5;
+}
+
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.md\:grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.text-emerald-700 {
+  color: #047857;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Navigation arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+  left: 20px;
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+/* Make sure hero is positioned relative */
+.hero {
+  position: relative;
+  /* ... other hero styles ... */
+}

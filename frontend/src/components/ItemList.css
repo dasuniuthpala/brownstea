@@ -1,0 +1,129 @@
+/* Set the page background to light green */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container background */
+.main-content {
+  padding-top: 90px; /* Increased to account for fixed header height (~75px) + extra space */
+}
+
+/* Page container background */
+.page-container {
+  background-color: rgb(242, 254, 242);
+  padding: 20px;
+  min-height: calc(100vh - 90px); /* Adjust for padding-top */
+  overflow-y: auto;
+}
+
+/* Table container with white background */
+.scrollable-container {
+  background-color: white;
+  max-height: 1000px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Table styling */
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.inventory-table th, .inventory-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.inventory-table th {
+  background-color: #f2f2f2;
+}
+
+/* Button styles */
+.add-button, .edit-button, .delete-button, .cart-button, .search-button, .download-button, .whatsapp-button {
+  padding: 8px 14px;
+  margin: 5px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Individual button colors */
+.add-button {
+  background-color: rgb(152, 219, 152);
+  color: white;
+}
+
+.edit-button {
+  background-color: blue;
+  color: white;
+}
+
+.delete-button {
+  width: 100px;
+  background-color: red;
+  color: white;
+}
+
+.cart-button {
+  width: 120px;
+  background-color: goldenrod;
+  color: black;
+}
+
+.search-button {
+  background-color: rgb(76, 196, 124);
+  color: white;
+}
+
+.download-button {
+  background-color: rgb(76, 196, 124);
+  color: white;
+}
+
+.whatsapp-button {
+  background-color: rgb(76, 196, 124);
+  color: white;
+}
+
+/* Hover Effects */
+.edit-button:hover,
+.delete-button:hover,
+.cart-button:hover,
+.search-button:hover,
+.download-button:hover,
+.whatsapp-button:hover {
+  opacity: 0.8;
+}
+
+/* Search bar styling */
+.search-bar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  width: 150px;
+  margin-left: 5px;
+}
+
+/* Download and WhatsApp button sizing */
+.download-button, .whatsapp-button {
+  padding: 12px 18px;
+  font-size: 16px;
+  width: 200px;
+}
