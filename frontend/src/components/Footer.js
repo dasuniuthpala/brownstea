@@ -16,10 +16,10 @@ const Footer = () => {
               Bringing the world's finest teas to your cup, one blend at a time.
             </p>
             <div className="footer-social">
-              <a href="#" className="social-icon"><FaFacebookF /></a>
-              <a href="#" className="social-icon"><FaTwitter /></a>
-              <a href="#" className="social-icon"><FaInstagram /></a>
-              <a href="#" className="social-icon"><FaPinterestP /></a>
+              <a href="https://facebook.com" className="social-icon" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+              <a href="https://twitter.com" className="social-icon" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+              <a href="https://instagram.com" className="social-icon" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+              <a href="https://pinterest.com" className="social-icon" target="_blank" rel="noopener noreferrer"><FaPinterestP /></a>
             </div>
           </div>
           

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { getVendorById, updateVendor } from "../../services/vendorService";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditVendor.css";
@@ -15,11 +15,7 @@ const EditVendor = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    loadVendor();
-  }, []);
-
-  const loadVendor = async () => {
+  const loadVendor = useCallback(async () => {
     try {
       const result = await getVendorById(id);
       setVendor(result.data);
@@ -28,7 +24,11 @@ const EditVendor = () => {
       console.error("Error fetching vendor:", error);
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    loadVendor();
+  }, [loadVendor]);
 
   const handleChange = (e) => {
     setVendor({ ...vendor, [e.target.name]: e.target.value });

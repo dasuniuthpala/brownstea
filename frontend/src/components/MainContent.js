@@ -51,7 +51,7 @@ const MainContent = () => {
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, []);
+  }, [images]);
 
   return (
     <main className="main-content">
