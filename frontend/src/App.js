@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
@@ -40,8 +40,10 @@ import VendorList from "./components/Vendor/VendorList";
 import AddVendor from "./components/Vendor/AddVendor";
 import EditVendor from "./components/Vendor/EditVendor";
 
-function App() {
+// AppContent component that uses useLocation
+function AppContent() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -51,49 +53,59 @@ function App() {
     setSidebarOpen(false);
   };
 
+  // Define routes where sidebar should be hidden
+  const hideSidebarRoutes = ['/productlist', '/orderlist', '/vendorlist'];
+  const shouldHideSidebar = hideSidebarRoutes.includes(location.pathname);
+
+  return (
+    <div className="app">
+      <Header toggleSidebar={toggleSidebar} />
+      {!shouldHideSidebar && <Sidebar isOpen={sidebarOpen} closeSidebar={closeSidebar} />}
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
+      <div className={`content ${shouldHideSidebar ? 'full-width' : ''}`}>
+        <Routes>
+          {/* General Pages */}
+          <Route path="/" element={<MainContent />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/teas" element={<TeaCollection />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/teacollection" element={<TeaCollection />} />
+          <Route path="/tea/:teaId" element={<TeaDetails />} />
+          <Route path="/post/:id" element={<BlogPostPage />} />
+
+          {/* Feedback Module */}
+          <Route path="/feedback" element={<FeedbackList />} />
+          <Route path="/add-feedback" element={<AddFeedback />} />
+          <Route path="/edit-feedback/:id" element={<EditFeedback />} />
+
+          {/* Inventory & Dashboard Module */}
+          <Route path="/d" element={<DDashboard />} />
+          <Route path="/inventory/wholesale" element={<DDashboard />} />
+          <Route path="/productlist" element={<ItemList />} />
+          <Route path="/add" element={<AddItem />} />
+          <Route path="/edit/:id" element={<EditItem />} />
+
+          {/* Order Module */}
+          <Route path="/orderlist" element={<OrderList />} />
+          <Route path="/addorder" element={<AddOrder />} />
+          <Route path="/editOrder/:id" element={<EditOrder />} />
+
+          {/* Vendor Module */}
+          <Route path="/vendorlist" element={<VendorList />} />
+          <Route path="/addvendor" element={<AddVendor />} />
+          <Route path="/editvendor/:id" element={<EditVendor />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
   return (
     <Router>
-      <div className="app">
-        <Header toggleSidebar={toggleSidebar} />
-        <Sidebar isOpen={sidebarOpen} closeSidebar={closeSidebar} />
-        <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
-        <div className="content">
-          <Routes>
-            {/* General Pages */}
-            <Route path="/" element={<MainContent />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/teas" element={<TeaCollection />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/teacollection" element={<TeaCollection />} />
-            <Route path="/tea/:teaId" element={<TeaDetails />} />
-            <Route path="/post/:id" element={<BlogPostPage />} />
-
-            {/* Feedback Module */}
-            <Route path="/feedback" element={<FeedbackList />} />
-            <Route path="/add-feedback" element={<AddFeedback />} />
-            <Route path="/edit-feedback/:id" element={<EditFeedback />} />
-
-            {/* Inventory & Dashboard Module */}
-            <Route path="/d" element={<DDashboard />} />
-            <Route path="/inventory/wholesale" element={<DDashboard />} />
-            <Route path="/productlist" element={<ItemList />} />
-            <Route path="/add" element={<AddItem />} />
-            <Route path="/edit/:id" element={<EditItem />} />
-
-            {/* Order Module */}
-            <Route path="/orderlist" element={<OrderList />} />
-            <Route path="/addorder" element={<AddOrder />} />
-            <Route path="/editOrder/:id" element={<EditOrder />} />
-
-            {/* Vendor Module */}
-            <Route path="/vendorlist" element={<VendorList />} />
-            <Route path="/addvendor" element={<AddVendor />} />
-            <Route path="/editvendor/:id" element={<EditVendor />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
+      <AppContent />
     </Router>
   );
 }

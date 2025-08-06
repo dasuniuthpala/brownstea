@@ -9,33 +9,24 @@ body {
   padding-top: 0; /* Remove padding to eliminate white space */
 }
 
-/* Page container background */
-.page-container {
+/* Page container background - match VendorList style */
+.page-background {
   background-color: rgb(242, 254, 242);
+  min-height: 100vh;
   padding: 20px;
-  min-height: 100vh; /* Full height without offset */
-  overflow-y: auto;
 }
 
-/* Table container with white background */
-.scrollable-container {
-  background-color: white;
-  max-height: 1000px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-/* Table styling */
+/* Table styling - match VendorList style */
 .inventory-table {
   width: 100%;
   border-collapse: collapse;
+  display: table;
+  background-color: white; /* Ensure table background stays white */
   margin-top: 20px;
 }
 
 .inventory-table th, .inventory-table td {
-  border: 1px solid #ddd;
+  border: 1px solid black;
   padding: 8px;
   text-align: left;
 }

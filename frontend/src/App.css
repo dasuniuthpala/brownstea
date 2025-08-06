@@ -71,6 +71,13 @@ body {
   margin-left: 250px;
 }
 
+/* Full width content for pages without sidebar */
+.content.full-width {
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
 /* Table styles */
 table {
   background-color: #f0fff0; /* Light green background for tables */

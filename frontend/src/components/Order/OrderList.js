@@ -132,7 +132,7 @@ const OrderList = () => {
 
   return (
     <div className="main-content">
-      <div className="page-container">
+      <div className="page-background">
         <h2>Order List</h2>
 
         <Link to="/addorder" className="add-button">Add Order</Link>
@@ -145,9 +145,7 @@ const OrderList = () => {
             placeholder="Search Orders Details"
           />
           <button onClick={handleSearch}>Search</button>
-        </div>
-
-      <div className="scrollable-container">  
+        </div>  
         <table className="inventory-table">
           <thead>
             <tr>
@@ -208,7 +206,6 @@ const OrderList = () => {
           </PieChart>
         </ResponsiveContainer>
       </div>
-    </div>
     </div>
   );
 };

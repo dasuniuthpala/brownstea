@@ -118,7 +118,7 @@ const ItemList = () => {
 
   return (
     <div className="main-content">
-      <div className="page-container">
+      <div className="page-background">
         <h2>Products List</h2>
         <Link to="/add" className="add-button">Add Item</Link>
 
@@ -134,18 +134,17 @@ const ItemList = () => {
 
         {noResults && <p>No results found.</p>}
 
-        <div className="scrollable-container">
-          <table className="inventory-table">
-            <thead>
-              <tr>
-                <th>Product ID</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Price-$ (1kg)</th>
-                <th>Stock Quantity (1kg packet)</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
+        <table className="inventory-table">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price-$ (1kg)</th>
+              <th>Stock Quantity (1kg packet)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
             <tbody>
               {items.map((item) => (
                 <tr key={item._id}>
@@ -167,7 +166,6 @@ const ItemList = () => {
               ))}
             </tbody>
           </table>
-        </div>
 
         <button onClick={generatePDFReport} className="download-button">Download Report</button>
         <br /><br />
