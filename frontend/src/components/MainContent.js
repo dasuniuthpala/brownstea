@@ -38,7 +38,7 @@ const features = [
 ];
 
 const MainContent = () => {
-  const images = [h1Image, h2Image, h3Image, h4Image, h5Image, h6Image]; // All images to rotate
+  const images = [h4Image, h5Image, h3Image, h1Image, h2Image, h6Image]; // All images to rotate
   const [currentImage, setCurrentImage] = useState(images[0]); // Initial image
 
   useEffect(() => {
